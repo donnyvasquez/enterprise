@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Listado de Empresas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1>Listado de Empresas</h1>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEnterpriseModal">
+                Crear Empresa
+            </button>
+        </div>
+
+        <!-- Filtros -->
+        <form class="row g-3 mb-4">
+            <div class="col-12 col-md-4">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="filterName" placeholder="Legal Name">
+                    <label for="filterName">Legal Name</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-floating">
+                    <select class="form-select" id="filterBusinessType">
+                        <option value="" selected>Todos</option>
+                        <option value="Single">Single</option>
+                        <option value="Company">Company</option>
+                    </select>
+                    <label for="filterBusinessType">Business Type</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-floating">
+                    <select class="form-select" id="filterCountry">
+                        <option value="" selected>Todos</option>
+                        <option value="MX">México</option>
+                        <option value="AR">Argentina</option>
+                        <option value="CO">Colombia</option>
+                        <option value="CL">Chile</option>
+                        <option value="PE">Perú</option>
+                    </select>
+                    <label for="filterCountry">Country</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-secondary">Filtrar</button>
+            </div>
+        </form>
+
+        <!-- Listado de Empresas -->
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Legal Name</th>
+                        <th>Business Type</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>City</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo de filas. En producción se rellenaría dinámicamente -->
+                    <tr>
+                        <td>Empresa A</td>
+                        <td>Company</td>
+                        <td>contacto@empresaA.com</td>
+                        <td>+52 123456789</td>
+                        <td>Ciudad A</td>
+                        <td>MX</td>
+                    </tr>
+                    <tr>
+                        <td>Empresa B</td>
+                        <td>Single</td>
+                        <td>contacto@empresaB.com</td>
+                        <td>+54 987654321</td>
+                        <td>Ciudad B</td>
+                        <td>AR</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Paginador -->
+        <nav aria-label="Paginación de empresas">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Siguiente</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Modal para Crear Empresa -->
+    <div class="modal fade" id="createEnterpriseModal" tabindex="-1" aria-labelledby="createEnterpriseModalLabel"
+        aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createEnterpriseModalLabel">Crear Empresa</h5>
+                    <!-- Se quita data-bs-dismiss para controlar el cierre manual -->
+                    <button type="button" class="btn-close" id="modalCloseButton" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Se carga el contenido de create_enterprise.html -->
+                    <iframe src="create_enterprise.html" frameborder="0" style="width: 100%; height: 500px;"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <!-- Se quita data-bs-dismiss para controlar el cierre manual -->
+                    <button type="button" class="btn btn-secondary" id="modalCancelButton">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Cierre -->
+    <div class="modal fade" id="confirmCloseModal" tabindex="-1" aria-labelledby="confirmCloseModalLabel"
+        aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmCloseModalLabel">Confirmar Cierre</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Si se cierra el formulario se perderán los cambios. ¿Desea cerrar el formulario?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="confirmCloseBtn">Cerrar formulario</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Obtener instancias de los modales
+        const createEnterpriseModalEl = document.getElementById('createEnterpriseModal');
+        const createEnterpriseModal = bootstrap.Modal.getOrCreateInstance(createEnterpriseModalEl);
+        const confirmCloseModalEl = document.getElementById('confirmCloseModal');
+        const confirmCloseModal = bootstrap.Modal.getOrCreateInstance(confirmCloseModalEl);
+
+        // Función para mostrar el modal de confirmación
+        function showConfirmCloseModal(event) {
+            event.preventDefault();
+            confirmCloseModal.show();
+        }
+
+        // Agregar eventos a los botones de cerrar y cancelar del modal principal
+        document.getElementById('modalCloseButton').addEventListener('click', showConfirmCloseModal);
+        document.getElementById('modalCancelButton').addEventListener('click', showConfirmCloseModal);
+
+        // Cuando se confirma el cierre, cerrar el modal principal
+        document.getElementById('confirmCloseBtn').addEventListener('click', function () {
+            confirmCloseModal.hide();
+            createEnterpriseModal.hide();
+        });
+    </script>
+</body>
+
+</html>
