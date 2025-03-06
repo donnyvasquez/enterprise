@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro de Empresa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container my-5">
+        <h1 class="mb-4">Registro de Empresa</h1>
+        <form class="needs-validation" novalidate>
+            <!-- Sección Empresa -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">Empresa</h2>
+                </div>
+                <div class="card-body">
+                    <!-- Identificación de la Empresa -->
+                    <h5 class="mb-3">Identificación de la Empresa</h5>
+                    <div class="row">
+                        <!-- Legal Name -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="legalName" name="name"
+                                    placeholder="Legal Name" required>
+                                <label for="legalName">Legal Name</label>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese el nombre legal de la empresa.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Doing Business As -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="doingBusinessAs" name="doing_business_as"
+                                    placeholder="Doing Business As">
+                                <label for="doingBusinessAs">Doing Business As</label>
+                            </div>
+                        </div>
+                        <!-- Business Type -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="businessType" name="business_type" required>
+                                    <option value="" selected>Seleccione un tipo</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Company">Company</option>
+                                </select>
+                                <label for="businessType">Business Type</label>
+                                <div class="invalid-feedback">
+                                    Por favor seleccione un tipo de negocio.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de Contacto -->
+                    <h5 class="mb-3">Información de Contacto</h5>
+                    <div class="row">
+                        <!-- Email -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="companyEmail" name="email"
+                                    placeholder="Email" required>
+                                <label for="companyEmail">Email</label>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un email válido.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Phone -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+                                <label for="phone">Phone</label>
+                            </div>
+                        </div>
+                        <!-- Website -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="url" class="form-control" id="website" name="website" placeholder="Website"
+                                    required>
+                                <label for="website">Website</label>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese una URL válida.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ubicación -->
+                    <h5 class="mb-3">Ubicación</h5>
+                    <div class="row">
+                        <!-- Address -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="address" name="address"
+                                    placeholder="Address" required>
+                                <label for="address">Address</label>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese la dirección.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- City -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="city" name="city" placeholder="City"
+                                    required>
+                                <label for="city">City</label>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese la ciudad.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Zip Code -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="zipCode" name="zip_code"
+                                    placeholder="Zip Code" required>
+                                <label for="zipCode">Zip Code</label>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese el código postal.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Country -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="country" name="country" required>
+                                    <option value="" selected>Seleccione un país</option>
+                                    <option value="MX">México</option>
+                                    <option value="AR">Argentina</option>
+                                    <option value="CO">Colombia</option>
+                                    <option value="CL">Chile</option>
+                                    <option value="PE">Perú</option>
+                                    <!-- Más opciones según necesidad -->
+                                </select>
+                                <label for="country">Country</label>
+                                <div class="invalid-feedback">
+                                    Por favor seleccione un país.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección Usuario Principal -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">Usuario Principal</h2>
+                </div>
+                <div class="card-body">
+                    <p>Este será el usuario principal de esta empresa. Un correo electrónico será enviado a el email del
+                        usuario con instrucciones.</p>
+                    <div class="row">
+                        <!-- User Name -->
+                        <div class="col-12 col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="userName" name="user_name"
+                                    placeholder="Name" required>
+                                <label for="userName">Name</label>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese el nombre del usuario.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- User Email -->
+                        <div class="col-12 col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="userEmail" name="user_email"
+                                    placeholder="Email" required>
+                                <label for="userEmail">Email</label>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un email válido.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Registrar</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Ejemplo de validación de formulario con Bootstrap
+        (function () {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+
+</html>
